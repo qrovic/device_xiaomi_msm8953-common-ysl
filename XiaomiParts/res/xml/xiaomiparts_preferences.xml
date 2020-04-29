@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -86,6 +87,21 @@
             android:icon="@drawable/ic_doze"
             android:title="@string/ambient_display_gestures_title" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="thermal_profile"
+        android:title="@string/thermal_profile_title">
+
+        <com.xiaomi.parts.preferences.SecureSettingListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/thermal_dialogTitle"
+            android:entries="@array/thermal_profiles"
+            android:entryValues="@array/thermal_values"
+            android:key="thermal"
+            android:summary="@string/thermal_summary"
+            android:title="@string/thermal_title"
+            android:icon="@drawable/ic_thermal" />
     </PreferenceCategory>
 
     <PreferenceCategory
