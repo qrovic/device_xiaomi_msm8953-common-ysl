@@ -243,6 +243,10 @@ ro.adb.secure=0 \
 ro.secure=0 \
 ro.debuggable=1
 
+# Vulkan(skia) Profil
+PRODUCT_PROPERTY_OVERRIDES += \
+debug.hwui.renderer=skiavk
+
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
 wifi.interface=wlan0
