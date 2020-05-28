@@ -18,3 +18,7 @@ r_dir_file(init, vfat)
 allow init vendor_data_file:file lock;
 allow init hal_audio_default:binder call;
 allow init platform_app:binder call;
+allow init sysfs_kgsl:file { setattr };
+allow init sysfs_kgsl:lnk_file { read };
+allow init sysfs:file { setattr };
+
