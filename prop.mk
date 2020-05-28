@@ -62,6 +62,9 @@ persist.camera.stats.test=5 \
 persist.vendor.qti.telephony.vt_cam_interface=2 \
 vidc.enc.dcvs.extra-buff-count=2
 
+#Dolby Audio
+vendor.audio.dolby.ds2.enabled=true \
+
 # Cne/Dpm
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.vendor.cne.feature=1 \
