@@ -35,7 +35,7 @@ import android.os.Vibrator;
 import androidx.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
-import com.xiaomi.parts.util.Utils;
+import com.xiaomi.parts.utils.AmbientUtils;
 
 public class SensorsDozeService extends Service {
 
@@ -353,8 +353,8 @@ public class SensorsDozeService extends Service {
         Vibrator vibrator = (Vibrator) mContext.getSystemService(
                 Context.VIBRATOR_SERVICE);
 
-        boolean enabled = Utils.getIntSystem(mContext, mContext.getContentResolver(),
-                Utils.AMBIENT_GESTURE_HAPTIC_FEEDBACK, 1) != 0;
+        boolean enabled = AmbientUtils.getIntSystem(mContext, mContext.getContentResolver(),
+                AmbientUtils.AMBIENT_GESTURE_HAPTIC_FEEDBACK, 1) != 0;
 
         switch (audioManager.getRingerMode()) {
             case AudioManager.RINGER_MODE_SILENT:

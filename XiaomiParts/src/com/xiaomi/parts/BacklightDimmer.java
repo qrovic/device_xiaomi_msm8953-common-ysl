@@ -18,6 +18,8 @@
 package com.xiaomi.parts;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.provider.Settings;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceManager;
@@ -44,7 +46,7 @@ public class BacklightDimmer implements OnPreferenceChangeListener {
     }
 
     public static boolean isCurrentlyEnabled(Context context) {
-        return FileUtils.getFileValueAsBoolean(getFile(), false);
+        return FileUtils.getFilesValueAsBoolean(getFile(), false);
     }
 
     @Override

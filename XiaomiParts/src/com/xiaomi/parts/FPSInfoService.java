@@ -267,9 +267,11 @@ public class FPSInfoService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-		    Log.d(TAG, "ACTION_SCREEN_ON ");
+                Log.d(TAG, "ACTION_SCREEN_ON " + isDozeMode());
+                if (!isDozeMode()) {
                     startThread();
                     mView.setVisibility(View.VISIBLE);
+                }
             } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
                 Log.d(TAG, "ACTION_SCREEN_OFF");
                 mView.setVisibility(View.GONE);
@@ -277,6 +279,10 @@ public class FPSInfoService extends Service {
             }
         }
     };
+
+    private boolean isDozeMode() {
+        return false;
+    }
 
     private void startThread() {
         Log.d(TAG, "started CurFPSThread");

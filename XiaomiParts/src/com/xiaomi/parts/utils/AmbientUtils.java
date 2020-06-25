@@ -1,4 +1,4 @@
-package com.xiaomi.parts.util;
+package com.xiaomi.parts.utils;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Utils {
+public class AmbientUtils {
 
-    public static final String TAG = "CorvusActions";
+    public static final String TAG = "ZenPartsActions";
 
-    public static final String PREFERENCES = "CorvusPreferences";
+    public static final String PREFERENCES = "ZenPartsPreferences";
     public static final String AMBIENT_GESTURE_HAPTIC_FEEDBACK =
             "AMBIENT_GESTURE_HAPTIC_FEEDBACK";
 
@@ -54,4 +54,3 @@ public class Utils {
         settings.unregisterOnSharedPreferenceChangeListener(preferenceListener);
     }
 }
-

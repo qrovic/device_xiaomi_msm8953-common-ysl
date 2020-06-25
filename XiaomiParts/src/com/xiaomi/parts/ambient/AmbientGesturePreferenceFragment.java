@@ -30,7 +30,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import com.xiaomi.parts.util.Utils;
+import com.xiaomi.parts.utils.AmbientUtils;
 import com.xiaomi.parts.R;
 
 public class AmbientGesturePreferenceFragment extends PreferenceFragment {
@@ -115,8 +115,8 @@ public class AmbientGesturePreferenceFragment extends PreferenceFragment {
     @Override
     public void onResume() {
         super.onResume();
-        mHapticFeedback.setChecked(Utils.getIntSystem(getContext(), getActivity().
-                getContentResolver(), Utils.AMBIENT_GESTURE_HAPTIC_FEEDBACK, 1) != 0);
+        mHapticFeedback.setChecked(AmbientUtils.getIntSystem(getContext(), getActivity().
+                getContentResolver(), AmbientUtils.AMBIENT_GESTURE_HAPTIC_FEEDBACK, 1) != 0);
         getListView().setPadding(0, 0, 0, 0);
     }
 
@@ -167,8 +167,8 @@ public class AmbientGesturePreferenceFragment extends PreferenceFragment {
             final String key = preference.getKey();
             if (KEY_HAPTIC_FEEDBACK.equals(key)) {
                 final boolean value = (boolean) newValue;
-                Utils.putIntSystem(getContext(), getActivity().getContentResolver(),
-                        Utils.AMBIENT_GESTURE_HAPTIC_FEEDBACK, value ? 1 : 0);
+                AmbientUtils.putIntSystem(getContext(), getActivity().getContentResolver(),
+                        AmbientUtils.AMBIENT_GESTURE_HAPTIC_FEEDBACK, value ? 1 : 0);
                 return true;
             }
             return false;

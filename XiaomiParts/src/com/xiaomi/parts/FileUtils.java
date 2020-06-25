@@ -1,11 +1,28 @@
+/*
+ * Copyright (C) 2018 The Asus-SDM660 Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License
+ */
+
 package com.xiaomi.parts;
+
+import android.os.SystemProperties;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import android.os.SystemProperties;
 
 public class FileUtils {
 
@@ -20,22 +37,6 @@ public class FileUtils {
         return new File(filename).exists();
     }
 
-    public static void setValue(String path, Boolean value) {
-        if (fileWritable(path)) {
-            if (path == null) {
-                return;
-            }
-            try {
-                FileOutputStream fos = new FileOutputStream(new File(path));
-                fos.write((value ? "Y" : "N").getBytes());
-                fos.flush();
-                fos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     public static void setValue(String path, int value) {
         if (fileWritable(path)) {
             if (path == null) {
@@ -44,6 +45,22 @@ public class FileUtils {
             try {
                 FileOutputStream fos = new FileOutputStream(new File(path));
                 fos.write(Integer.toString(value).getBytes());
+                fos.flush();
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    static void setValue(String path, boolean value) {
+        if (fileWritable(path)) {
+            if (path == null) {
+                return;
+            }
+            try {
+                FileOutputStream fos = new FileOutputStream(new File(path));
+                fos.write((value ? "1" : "0").getBytes());
                 fos.flush();
                 fos.close();
             } catch (IOException e) {
@@ -68,7 +85,7 @@ public class FileUtils {
         }
     }
 
-    public static void setValue(String path, String value) {
+    static void setValue(String path, String value) {
         if (fileWritable(path)) {
             if (path == null) {
                 return;
@@ -110,23 +127,17 @@ public class FileUtils {
     static boolean getFileValueAsBoolean(String filename, boolean defValue) {
         String fileValue = readLine(filename);
         if (fileValue != null) {
-            return !fileValue.equals("N");
+            return !fileValue.equals("0");
         }
         return defValue;
     }
 
-    static String getValue(String filename) {
-        if (filename == null) {
-            return null;
+    static boolean getFilesValueAsBoolean(String filename, boolean defValue) {
+        String fileValue = readLine(filename);
+        if (fileValue != null) {
+            return !fileValue.equals("N");
         }
-        String line;
-        try (BufferedReader br = new BufferedReader(new FileReader(filename), 1024)) {
-            line = br.readLine();
-        } catch (IOException e) {
-            return null;
-        }
-        // ignore
-        return line;
+        return defValue;
     }
 
     static void setProp(String prop, boolean value) {
@@ -147,5 +158,13 @@ public class FileUtils {
 
     static String getStringProp(String prop, String defaultValue) {
         return SystemProperties.get(prop, defaultValue);
+    }
+
+    static void setintProp(String prop, int value) {
+        SystemProperties.set(prop, String.valueOf(value));
+    }
+
+    static int getintProp(String prop, int defaultValue) {
+        return SystemProperties.getInt(prop, defaultValue);
     }
 }
