@@ -31,8 +31,6 @@
     <string name="torch_title">Torch</string>
     <string name="yellow_torch_brightness_title">Yellow Torch Brightness</string>
     <string name="white_torch_brightness_title">White Torch Brightness</string>
-    <string name="cameraflash_title">Camera Flash</string>
-    <string name="yellowflash_intensity_title">Yellow Light Intensity</string>
 	
     <!-- Vibration -->
     <string name="vibration_title">Vibration feedback</string>
@@ -247,10 +245,6 @@
     <string name="cpuboost_low">Low</string>
     <string name="cpuboost_disable">Disable</string>
 
-    <!-- LED Brightness -->
-    <string name="chargingled_title">Charging LED</string>
-    <string name="led_blinking_title">Blinking Intensity</string>
-
     <string name="thermal_title">Thermal</string>
     <string name="msmthermal_title">MSM Thermal</string>
     <string name="msmthermal_summary">Enable Thermal driver control</string>
@@ -310,8 +304,4 @@
     <string name="selinux_persistence_summary">Restore the above set sepolicy mode on each boot</string>
     <string name="selinux_permissive_toast_title">Selinux set to permissive!</string>
     <string name="selinux_enforcing_toast_title">Selinux set to enforcing!</string>
-
-    <!-- Notification LED brightness -->
-    <string name="notification_title">Notification LED</string>
-    <string name="notification_led_title">LED brightness</string>
 </resources>
